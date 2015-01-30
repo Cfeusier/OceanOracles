@@ -25,7 +25,6 @@ window.GuideCreateView = Backbone.View.extend({
     var steps = [];
     var $stepFields = this.$el.find('.step-input');
     this.getAndSetSteps(guide, steps, $stepFields);
-    guide.set('steps', steps);
     // TODO: remove after testing is complete
     console.log(guide);
     appUtils.clearFields(this.$el.find('#G_title'));
@@ -50,6 +49,7 @@ window.GuideCreateView = Backbone.View.extend({
       new Step().createStep(stepData, steps);
       appUtils.clearFields($field);
     });
+    guide.set('steps', steps);
   }
 
 });
